@@ -70,6 +70,7 @@ dependencies = [
   "platformdirs>=2",
   "tomli>=1.1.0; python_version < '3.11'",
   "typing_extensions>=4.0.1; python_version < '3.11'",
+  "fickling~=0.1.0",
 ]
 dynamic = ["readme", "version"]
 

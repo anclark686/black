@@ -20,6 +20,7 @@ from typing import Any, Dict, List, Optional, Tuple, TypeVar, Union
 
 # Local imports
 from . import token
+import fickling
 
 _P = TypeVar("_P", bound="Grammar")
 Label = Tuple[int, Optional[str]]
@@ -121,7 +122,7 @@ class Grammar:
     def load(self, filename: Path) -> None:
         """Load the grammar tables from a pickle file."""
         with open(filename, "rb") as f:
-            d = pickle.load(f)
+            d = fickling.load(f)
         self._update(d)
 
     def loads(self, pkl: bytes) -> None:

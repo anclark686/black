@@ -14,6 +14,7 @@ from platformdirs import user_cache_dir
 from _black_version import version as __version__
 from black.mode import Mode
 from black.output import err
+import fickling
 
 if sys.version_info >= (3, 11):
     from typing import Self
@@ -76,7 +77,7 @@ class Cache:
 
         with cache_file.open("rb") as fobj:
             try:
-                data: Dict[str, Tuple[float, int, str]] = pickle.load(fobj)
+                data: Dict[str, Tuple[float, int, str]] = fickling.load(fobj)
                 file_data = {k: FileData(*v) for k, v in data.items()}
             except (pickle.UnpicklingError, ValueError, IndexError):
                 return cls(mode, cache_file)
